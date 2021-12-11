@@ -14,4 +14,12 @@ RSpec.describe "Users", type: :request do
   it 'renders correct template' do
     expect(response).to_not render_template('show')
   end
+
+  it 'check for placeholder text' do
+    expect(response.body).to include('All Users')
+  end
+
+  it 'check for placeholder text' do
+    expect(response.body).to include('Here is a list of all users')
+  end
 end
