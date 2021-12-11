@@ -38,4 +38,4 @@ RSpec.describe 'Posts', type: :request do
       expect(response.body).to include('Post 10 by User')
     end
   end
-end   
+end
