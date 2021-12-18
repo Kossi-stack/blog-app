@@ -28,8 +28,10 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-gem 'rails-controller-testing'
 gem 'better_errors', '~> 2.9', '>= 2.9.1'
+gem 'binding_of_caller'
+gem 'bootstrap-sass'
+gem 'rails-controller-testing'
 
 group :development, :test do
   gem 'rspec-rails', '~> 5.0.0'
