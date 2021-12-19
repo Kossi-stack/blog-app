@@ -17,7 +17,7 @@ class PostsController < ApplicationController
     @post = Post.new(params[:id])
     @post.title = params[:title]
     @post.text = params[:text]
-    @post.author_id = current_user.id
+    @post.user_id = current_user.id
     if @post.save
       flash[:notice] = 'Post successfully added!'
       redirect_to user_posts_path
