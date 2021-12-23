@@ -32,6 +32,7 @@ gem 'better_errors', '~> 2.9', '>= 2.9.1'
 gem 'binding_of_caller'
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'cancancan'
 gem 'rails-controller-testing'
 
 group :development, :test do
