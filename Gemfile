@@ -31,6 +31,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'better_errors', '~> 2.9', '>= 2.9.1'
 gem 'binding_of_caller'
 gem 'bootstrap-sass'
+gem 'devise'
 gem 'rails-controller-testing'
 
 group :development, :test do
