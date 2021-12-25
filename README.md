@@ -1,78 +1,67 @@
-Blog-app
+# The `Blog Application` on RoR
 
-The Blog app is a classic example of a blog website. It's a functional website that shows the list of posts and empower readers to interact with them by adding comments and liking posts.
-Built With
+> The Blog app is a classic example of a blog website. Here created a fully functional website that will show the list of posts and empower readers to interact with them by adding comments and liking posts.
 
-    Ruby
-    Ruby on Rails
+### Build with:
 
-Getting Started
+- Ruby
+- Rails
+- PostgreSQL
+- Front end stack
 
-To get a local copy up and running follow these simple example steps.
+## Project milestones:
 
-git clone https://github.com/Kossi-stack/blog-app.git
+- Project 1: Setup and controllers. 
+- Project 2: Controllers specs.  
+- Project 3: Creating a data model.  
+- Project 4: Processing data in models.  
+- Project 5: Views.
+- Project 6: Forms.  
+- Project 7: Validations, Model specs, and n+1 problems. 
+- Project 8: Add Devise. 
+- Project 9: Add authorization rules.  
+- Project 10: Integration specs for Views. 
+- Project 11: Add API endpoints.  🚩​🚩​🚩 (current milestone)
+- Exercise: API documentation.
 
-cd Trending-Blog-app
-Prerequisites
+## Getting Started
 
-Ruby Rails PostgresSQL
-Setup
+- make sure you have Ruby and Postgresql installed on your system.
+- install rails by running `gem install rails`
+- git clone https://github.com/elmar8287/blog_app.git
+- cd ./blog_app
+- run `yarn install` to install all dependencies
+- run `rails db:create` and `rails db:migrate` to create database.
+- run `rails s` and go to http:localhost:3000 to view the app.
 
-Install gems with:
+## Run tests
 
-    bundle install
+- install npm with `npm i`
+- install rspec with `bundle install` and `rails generate rspec:install`
+- run the test with `rspec spec`
 
-Setup database with:
+## Author
 
-    rails db:create
-    rails db:migrate
+👤 **Elmar Abdulkarimov**
 
-Usage
+- GitHub: [Elmar Abdulkarimov](https://github.com/elmar8287)
 
-Start server with:
-
-    rails server
-
-Open http://localhost:3000/ in your browser.
-Run tests
-
-Install npm with:
-
-    npm i
-
-Install rspec with:
-
-bundle install
-
-and
-
-rails generate rspec:install
-
-run the test with:
- 
-    rspec spec
-
-Author
-
-👤***Kossi Fioklou***
-
-- Location: Togo
-- GitHub: [@Kossi-stack](https://github.com/kossi-stack)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/kossi-stack/)
-
-🤝 Contributing
+## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the issues page.
-Show your support
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
 
 Give a ⭐️ if you like this project!
-Acknowledgments
 
-    A special thanks to Microverse for inspiring this project. I am indebted to you all at Microverse
-    A special thanks goes to all our peers at Microverse for being there for me.
+## Acknowledgments
 
-📝 License
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
 
-This project is MIT licensed.
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
