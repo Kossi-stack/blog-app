@@ -24,22 +24,21 @@ gem 'jbuilder', '~> 2.7'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
+gem 'rubocop', '>= 1.0', '< 2.0'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-gem 'better_errors', '~> 2.9', '>= 2.9.1'
-gem 'binding_of_caller'
-gem 'bootstrap-sass'
-gem 'cancancan'
+# session and account manager for the application
 gem 'devise'
-gem 'rails-controller-testing'
+
+# authorization manager
+gem 'cancancan'
 
 group :development, :test do
+  # Add rspec-rails
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 5.0.0'
-end
-
-group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
@@ -65,5 +64,3 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
-
-gem 'rubocop', '>= 1.0', '< 2.0'

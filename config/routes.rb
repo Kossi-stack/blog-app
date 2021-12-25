@@ -1,12 +1,15 @@
-Rails.application.routes.draw do
-  
-  devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root'users#index'
+# frozen_string_literal: true
 
-  resources :users, only: [:index, :show, :new, :create] do
-    resources :posts, only: [:index, :new, :show, :create] do
-      resources :comments, only: [:new, :create]
+Rails.application.routes.draw do
+  devise_for :users
+  root 'users#index'
+
+  resources :users, only: %i[index show] do
+    resources :posts, only: %i[index show new create destroy] do
+      resources :comments, only: %i[new create destroy]
     end
   end
+
+  resources :likes, only: %i[create]
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

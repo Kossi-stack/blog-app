@@ -1,14 +1,15 @@
-<%= render partial: "users/user_card", object: @user, as: 'user' %>
-<% @user.posts.each do |post| %>
-<a href="/users/<%= post.user_id %>/posts/<%= post.id %>" ><%= render partial: "post_card", object: post, as: 'post' %></a>
-<% post.comments.each do |comment| %>
-<%= render partial: "comment_card", object: comment, as: 'comment' %>
+<%= render partial: 'shared/header' %>
+
+<%= render partial:'users/user', locals: {user: @user} %>
+<p>
+  <%= @user.bio %>
+</p>
+
+<ul>
+  <% @user_posts.each do |post| %>
+    <%= render partial:'post', locals:{post: post, users: @users, comments: @comments} %>
+  <% end %>
+</ul>
+<% unless @user_posts.size == 0 %>
+  <button>Pagination</button>
 <% end %>
-<% end %>
-<div class="container">
-<div class="row">
-<div class="col text-center">
-<button class="btn btn-primary"> Pagination </button>
-</div>
-</div>
-</div>
