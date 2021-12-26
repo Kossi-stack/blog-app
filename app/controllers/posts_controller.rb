@@ -1,14 +1,20 @@
+#  Controller for posts
 class PostsController < ApplicationController
   load_and_authorize_resource
 
-  skip_before_action :verify_authenticity_token
   def index
-    @user = User.includes(:posts).find(params[:user_id])
+    @user = User.find(params[:user_id])
+    @users = User.all
+    @user_posts = Post.includes(:author).where(author: @user)
+    @comments = Comment.all
   end
 
   def show
     @user = User.find(params[:user_id])
-    @post = @user.posts.includes(:comments, :likes).find(params[:id])
+    @post = @user.posts.find(params[:id])
+    @comments = @post.comments.all.order(created_at: :desc)
+    @users = User.all
+    @likes = @post.likes.all
   end
 
   def new
@@ -16,21 +22,27 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(params[:id])
-    @post.title = params[:title]
-    @post.text = params[:text]
-    @post.user_id = current_user.id
+    @post = Post.new post_params
+    @post.author = current_user
     if @post.save
-      flash[:notice] = 'Post successfully added!'
-      redirect_to user_posts_path
+
+      redirect_to user_posts_path, notice: 'Post added successfully!'
     else
-      render 'new'
+      flash[:alert] = @post.errors.first.full_message
+      render :new
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+
+    redirect_to user_posts_path, alert: 'Post deleted successfully!'
   end
 
   private
 
   def post_params
-    params.permit(:text, :title)
+    params.require(:post).permit(:title, :text)
   end
 end

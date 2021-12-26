@@ -1,5 +1,32 @@
-<%= render partial: "post_card", object: @post, as: 'post' %>
-<% @post.comments.each do |comment| %>
-<%= render partial: "comment_card", object: comment, as: 'comment' %>
-<% end %>
-<%= render partial: "comments/new_comment" %>
+<%= render partial: 'shared/header' %>
+<div class="post-header">
+  <h2><%= @post.title %></h2>
+  by<span><%= @user.name %> </span>
+  <div class="stats">
+    Comments: <%= @comments.count %>
+    Likes: <%= @likes.count %>
+  </div>
+</div>
+ <p>
+  <%= @post.text %>
+</p>
+<div class="buttons">
+  <%= link_to 'Add comment', user_post_path(params[:user_id], params[:id])+'/comments/new', class:'btn' %>
+  <%= button_to 'Like', likes_path, params:{like:{post_id:@post.id}}, method: :post, class:'btn' %>
+  <% if can? :destroy, @post %>
+    <%= link_to 'Delete post', { :controller=>:posts,:action=>:destroy, :id=>params[:id] }, :method=>:delete, class:'btn btn-danger' %>
+  <% end %>
+</div>
+<ul class="comments">
+  <% @comments.each do |comment| %>
+    <li class="comment">
+      <%= comment.author.name %>:
+      <%= comment.text %>
+      <% if can? :destroy, comment %>
+       <%= link_to 'Delete Comment',  user_post_comment_path(params[:user_id], @post, comment),   method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger' %>
+      <% end %>
+
+    </li>
+
+  <% end %>
+</ul>
